@@ -1,0 +1,38 @@
+header {
+    height: 50px;
+    background: seagreen;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 8px 20px;
+}
+
+.nav {
+    max-height: 100%;
+}
+
+.navlogo {
+    max-height: 40px;
+    align-items: center;
+}
+
+/* Style the links inside the navigation bar */
+.nav a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Change the color of links on hover */
+.nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.nav a.active {
+    color: #bbb;
+}

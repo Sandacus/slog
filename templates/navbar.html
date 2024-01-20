@@ -1,21 +1,20 @@
-<header class="header">
-  <img alt="logo" class="navlogo" src="{{config.extra.logo}}"/>
+<header>
+  <a href={{ get_url(path="/", lang=lang) }}>
+    <img alt="logo" class="navlogo" src="{{config.extra.logo}}"/>
+  </a>
 
   <nav class="nav">
     {# --- home button --- -#}
     <a href="/" class="{%- if current_path == '/' %} active {% endif -%}" src="">Home</a>
-    
-    {# --- get index to automatically get pages and subsections --- -#} 
-    {%- set index = get_section(path="_index.md") -%} 
-    {# --- right links ---#} 
-    {%- for s in index.subsections | reverse -%} 
-    {%- set subsection = get_section(path=s) -%} 
-    <a
-      href="{{ subsection.permalink }}"
-      class="{%- if current_path %}{% if current_path is starting_with(subsection.path) %} active {% endif %}{% endif -%}"
-      >{{subsection.title}}
-    </a>
-    {%- endfor -%} 
+
+    {%- if config.extra.navbar %}
+      {% for menu in config.extra.navbar %}
+          {% set trailing_slash = menu.trailing_slash | default(value=true) %}
+          <a class="{%- if current_path is containing(menu.url) %} active {% endif -%}" href="{{ get_url(path=menu.url, lang=lang, trailing_slash=trailing_slash) }}">
+            {{ menu.name }}
+          </a>
+      {% endfor %}
+    {%- endif -%}
 
   </nav>
 
