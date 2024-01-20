@@ -14,3 +14,12 @@ highlight_code = false
 
 [extra]
 # Put all your custom variables here
+name = "Munro"
+logo = "/img/logo-circle.png"
+
+[[extra.nav.link]]
+name = "test link1"
+url = ""
+[[extra.nav.link]]
+name = "test link2"
+url = ""
